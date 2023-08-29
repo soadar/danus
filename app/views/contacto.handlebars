@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="css/form.css" />
+
+<form class="form" id="form" action="/contacto" method="post">
+  <h2 class="form__title">Contacto</h2>
+  <div class="form__container">
+    <div class="form__group">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form__input"
+        placeholder=" "
+      />
+      <label for="name" class="form__label">Nombre</label>
+      <span class="form__line"></span>
+    </div>
+
+    <div class="form__group">
+      <input
+        type="text"
+        id="tel"
+        name="tel"
+        class="form__input"
+        placeholder=" "
+      />
+      <label for="tel" class="form__label">Telefono</label>
+      <span class="form__line"></span>
+    </div>
+
+    <div class="form__group">
+      <textarea
+        class="form__input"
+        id="message"
+        name="message"
+        placeholder=" "
+        rows="3"
+      ></textarea>
+      <label for="message" class="form__label">Mensaje</label>
+      <span class="form__line2"></span>
+    </div>
+
+    <input type="submit" class="form__submit" value="Enviar" />
+  </div>
+</form>

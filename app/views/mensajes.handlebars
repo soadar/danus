@@ -1,0 +1,25 @@
+<div class="h-auto d-inline-block">
+  <h1 class="text-center">Mensajes</h1>
+  <div class="h-100">
+    <div class="row justify-content-center">
+      {{#if mensajes}}
+        {{#each mensajes}}
+          {{#each this}}
+            {{#if this.name}}
+              <div class="card m-3 bg-transparent" style="width: 18rem;">
+                <div class="card-body">
+                  <p>{{this.createdAt}}</p>
+                  <p class="card-text"><strong>Nombre:
+                    </strong>{{this.name}}</p>
+                  <p class="card-text"><strong>Tel: </strong>{{this.tel}}</p>
+                  <p class="card-text"><strong>Mensaje:
+                    </strong>{{this.message}}</p>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="css/form.css" />
+
+<form class="form" id="form" action="/crearProducto" method="post">
+  <h2 class="form__title">Crear Producto</h2>
+  <div class="form__container">
+    <div class="form__group">
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form__input"
+        placeholder=" "
+      />
+      <label for="title" class="form__label">Nombre</label>
+      <span class="form__line"></span>
+    </div>
+
+    <div class="form__group">
+      <input
+        type="text"
+        id="image"
+        name="image"
+        class="form__input"
+        placeholder=" "
+      />
+      <label for="image" class="form__label">Imagen</label>
+      <span class="form__line"></span>
+    </div>
+
+    <input type="submit" class="form__submit" value="Enviar" />
+  </div>
+</form>

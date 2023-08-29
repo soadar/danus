@@ -1,0 +1,37 @@
+<div class="h-auto d-inline-block">
+  <h1 class="text-center">Lista de productos</h1>
+  <div class="h-100">
+    <div class="row justify-content-center">
+      {{#if albums}}
+        {{#each albums}}
+          {{#each this}}
+            {{#if this.title}}
+              <div class="card m-3 bg-transparent" style="width: 18rem;">
+                <img
+                  src="{{this.thumbnails}}"
+                  class="card-img-top pt-2 rounded-4"
+                  alt="{{this.title}}"
+                />
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{this.title}}</h5>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        {{/each}}
+      {{/if}}
+
+      {{!-- {{#if info}}
+        <div class="text-center card w-25 mx-auto m-5">
+          {{#each info}}
+            {{#if this.email}}
+              <p class="m-0"><strong>nombre</strong> {{this.first_name}}</p>
+              <p class="m-0"><strong>img</strong> {{this.role}}</p>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}} --}}
+
+    </div>
+  </div>
+</div>
