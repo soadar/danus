@@ -1,4 +1,3 @@
-import cookieParser from "cookie-parser";
 import express from "express";
 import handlebars from "express-handlebars";
 import morgan from "morgan";
@@ -20,8 +19,6 @@ app.use(errorHandler);
 app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
 app.set("views", __dirname + "/views");
-
-app.use(cookieParser());
 
 app.use("/", viewsRouter);
 

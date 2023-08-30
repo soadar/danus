@@ -9,15 +9,16 @@
     />
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
-
     <title>Danus</title>
   </head>
-  <body class="d-flex flex-column  container-fluid">
-    {{!-- <div id="divLogo" class="row"></div> --}}
+  <body class="d-flex flex-column container-fluid">
+    {{! <div id="divLogo" class="row"></div> }}
     <nav class="navbar bg-body-tertiary bg-dark row" data-bs-theme="dark">
       <div class="container">
         <div id="navbarNav" class="mx-auto">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row mb-3-center">
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row mb-3-center"
+          >
             <li class="nav-item m-1 me-4">
               <a class="btn" id="inicio" href="/">Inicio</a>
             </li>
@@ -43,42 +44,53 @@
 
     {{{body}}}
 
-      <footer class="d-flex justify-content-between flex-wrap p-2 row bg-dark mt-auto  ">
-        <div class="container pt-3">
-            <div class="row social-buttons container-fluid">
-                <div class="col-sm-4 ml-auto text-center">
-                    <a href="https://www.facebook.com/DanusEventos" target="blank" class="social-margin">
-                        <div class="social-icon facebook">
-                            <i class="fa-brands fa-facebook"></i>
-                        </div>
-                        <p class="text-light">/DanusEventos</p>
-                    </a>
-                </div>
-                </a>
-
-                <div class="col-sm-4 mr-auto text-center">
-                    <a href="mailto:contact@yourdomain.com" target="blank" class="social-margin">
-                        <div class="social-icon instagram">
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
-                        <p class="text-light">contact@yourdomain.com</p>
-                    </a>
-                </div>
-                <div class="col-sm-4 ml-auto text-center">
-                    <a href="https://wa.me/5491150500147" target="blank" class="social-margin">
-                        <div class="social-icon wp">
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <p class="text-light">+5491155555555</p>
-                    </a>
-                </div>
+    <footer class="p-2 row bg-dark">
+      <div class="social-buttons d-flex flex-row">
+        <div class="col-sm-4 ml-auto text-center">
+          <a
+            href="https://www.facebook.com/DanusEventos"
+            target="blank"
+            class="social-margin"
+          >
+            <div class="social-icon facebook">
+              <i class="fa-brands fa-facebook"></i>
             </div>
+            <p class="text-light">/DanusEventos</p>
+          </a>
         </div>
-        <div class="container text-center">
-            <span class="copyright-text text-white-50">Copyright &copy; <span id="year"></span> Todos los derechos
-                reservados
-            </span>
+
+        <div class="col-sm-4 mr-auto text-center">
+          <a
+            href="mailto:contact@yourdomain.com"
+            target="blank"
+            class="social-margin"
+          >
+            <div class="social-icon instagram">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <p class="text-light">contact@yourdomain.com</p>
+          </a>
         </div>
+        <div class="col-sm-4 ml-auto text-center">
+          <a
+            href="https://wa.me/5491150500147"
+            target="blank"
+            class="social-margin"
+          >
+            <div class="social-icon wp">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <p class="text-light">+5491155555555</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="container text-center">
+        <span class="copyright-text text-white-50">Copyright &copy;
+          <span id="year"></span>
+          Todos los derechos reservados
+        </span>
+      </div>
     </footer>
 
     <script src="js/jquery-3.7.0.min.js"></script>
