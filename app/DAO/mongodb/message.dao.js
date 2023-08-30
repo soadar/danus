@@ -15,7 +15,6 @@ export default class MessageDaoMongoDB {
                 message._doc.createdAt = message._doc.createdAt.toLocaleDateString('es-ES', options);
             })
             //timestamp: message.createdAt.toLocaleDateString('es-ES', options)
-            console.log(formattedMessages);
             return formattedMessages;
         } catch (error) {
             console.log(error);

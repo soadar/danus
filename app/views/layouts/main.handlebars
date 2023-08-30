@@ -13,12 +13,13 @@
   </head>
   <body class="d-flex flex-column container-fluid">
     {{! <div id="divLogo" class="row"></div> }}
-    <nav class="navbar bg-body-tertiary bg-dark row" data-bs-theme="dark">
+    <nav
+      class="navbar bg-body-tertiary bg-dark row navbar-expand-lg"
+      data-bs-theme="dark"
+    >
       <div class="container">
         <div id="navbarNav" class="mx-auto">
-          <ul
-            class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row mb-3-center"
-          >
+          <ul class="navbar-nav mb-lg-0 d-flex flex-row ms-4">
             <li class="nav-item m-1 me-4">
               <a class="btn" id="inicio" href="/">Inicio</a>
             </li>
@@ -28,24 +29,38 @@
             <li class="nav-item m-1 me-4">
               <a class="btn" id="contacto" href="/contacto">Contacto</a>
             </li>
-            <li class="nav-item m-1 me-4">
-              <a class="btn" id="contacto" href="/mensajes">Ver mensajes</a>
-            </li>
-            <li class="nav-item m-1 me-4">
-              <a class="btn" id="album" href="/crearAlbum">Crear album</a>
-            </li>
-            <li class="nav-item m-1 me-4">
-              <a class="btn" id="album" href="/crearProducto">Crear producto</a>
-            </li>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
           </ul>
+          <div
+            class="collapse navbar-collapse text-center"
+            id="navbarNavAltMarkup"
+          >
+            <div class="navbar-nav d-flex flex-row">
+              <a class="btn" id="contacto" href="/mensajes">Ver mensajes</a>
+              <a class="btn" id="album" href="/crearAlbum">Crear album</a>
+              <a class="btn" id="album" href="/crearProducto">Crear producto</a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
 
     {{{body}}}
 
-    <footer class="p-2 row bg-dark">
-      <div class="social-buttons d-flex flex-row">
+    <footer class="pt-4 row bg-dark">
+      <div class="social-buttons d-flex flex-row justify-content-around">
         <div class="col-sm-4 ml-auto text-center">
           <a
             href="https://www.facebook.com/DanusEventos"
@@ -55,7 +70,7 @@
             <div class="social-icon facebook">
               <i class="fa-brands fa-facebook"></i>
             </div>
-            <p class="text-light">/DanusEventos</p>
+            <p class="text-light">DanusEventos</p>
           </a>
         </div>
 
@@ -68,7 +83,7 @@
             <div class="social-icon instagram">
               <i class="fa-regular fa-envelope"></i>
             </div>
-            <p class="text-light">contact@yourdomain.com</p>
+            <p class="text-light">Email</p>
           </a>
         </div>
         <div class="col-sm-4 ml-auto text-center">
@@ -80,7 +95,7 @@
             <div class="social-icon wp">
               <i class="fa-brands fa-instagram"></i>
             </div>
-            <p class="text-light">+5491155555555</p>
+            <p class="text-light">Whatsapp</p>
           </a>
         </div>
       </div>

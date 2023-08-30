@@ -6,8 +6,6 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import viewsRouter from "./routes/views.js";
 import { __dirname } from "./utils.js";
 
-console.log(__dirname);
-
 const app = express();
 
 app.use(express.json());
