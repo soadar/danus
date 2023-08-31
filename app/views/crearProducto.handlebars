@@ -1,17 +1,37 @@
 <link rel="stylesheet" href="css/form.css" />
-
 <form class="form" id="form" action="/crearProducto" method="post">
-  <h2 class="form__title">Crear Producto</h2>
+
+  <h2 class="form__title mb-4">Crear Producto</h2>
+
+  {{#if nombres}}
+    {{#each nombres}}{{/each}}
+    <div class="d-flex justify-content-between">
+      <p class="my-auto">Seleccionar Album</p>
+      <select
+        class="form-select w-50"
+        aria-label="Default select example"
+        name="album"
+        required
+      >
+        <option selected></option>
+        {{#each nombres}}
+          <option value={{this}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+  {{/if}}
+
   <div class="form__container">
     <div class="form__group">
       <input
         type="text"
-        id="title"
-        name="title"
+        id="name"
+        name="name"
         class="form__input"
         placeholder=" "
+        required
       />
-      <label for="title" class="form__label">Nombre</label>
+      <label for="name" class="form__label">Nombre</label>
       <span class="form__line"></span>
     </div>
 
@@ -22,6 +42,7 @@
         name="image"
         class="form__input"
         placeholder=" "
+        required
       />
       <label for="image" class="form__label">Imagen</label>
       <span class="form__line"></span>

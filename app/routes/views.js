@@ -26,6 +26,12 @@ router.get('/productos', async (req, res) => {
         });
     } else {
         const albums = await productDao.search(products);
+
+        albums.forEach(album => {
+            const name = album.title.split('_')
+            album.title = name[1]
+        })
+
         res.render("productos", {
             albums
         });
@@ -69,11 +75,18 @@ router.post('/crearAlbum', async (req, res) => {
 });
 
 router.get('/crearProducto', async (req, res) => {
-    res.render("crearProducto");
+    const albums = await albumDao.getAll();
+    var nombres = albums.map((x) => {
+        return x.title;
+    });
+    res.render("crearProducto", {
+        nombres
+    });
 });
 
 router.post('/crearProducto', async (req, res) => {
-    const { title, image } = req.body;
+    const { name, image, album } = req.body;
+    const title = `${album}_${name}`
     await productDao.create({ title, thumbnails: image });
     res.render("crearProducto");
 });
