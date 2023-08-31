@@ -197,3 +197,7 @@ img {
     color: red !important;
   } */
 }
+
+.mensajes {
+  min-height: 80% !important;
+}
