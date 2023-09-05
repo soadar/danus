@@ -5,7 +5,7 @@
 
 body {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
+  background-size: 500% 500%;
   animation: gradient 15s ease infinite;
   height: 100vh;
 }
@@ -167,7 +167,16 @@ img {
     width: 300px;
   }
 }
-
+@media only screen and (max-width: 910px) {
+  .portada {
+    min-height: 75% !important;
+  }
+}
+@media only screen and (max-width: 1120px) {
+  .owl-carousel .item {
+    width: 350px !important;
+  }
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   /* #footer * {
@@ -192,4 +201,8 @@ img {
 
 .mensajes {
   min-height: 80% !important;
+}
+
+.prods {
+  min-height: 450px !important;
 }

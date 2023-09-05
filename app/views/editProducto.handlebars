@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="css/form.css" />
+
+{{#if data}}
+  <form
+    class="form"
+    id="form"
+    action="/editProducto?id={{data._id}}"
+    method="post"
+  >
+    <h2 class="form__title mb-4">Editar Producto</h2>
+    <div class="form__container">
+      {{#if data.album}}
+        <div class="d-flex justify-content-between">
+          <p class="my-auto">Seleccionar Album</p>
+          <select
+            class="form-select w-50"
+            aria-label="Default select example"
+            name="album"
+            required
+          >
+            <option selected></option>
+            {{#each nombres}}
+              <option value={{this}}>{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+      {{/if}}
+      <div class="form__group">
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form__input"
+          placeholder=" "
+          value={{data.title}}
+          required
+        />
+        <label for="name" class="form__label">Nombre</label>
+        <span class="form__line"></span>
+      </div>
+
+      <div class="form__group">
+        <input
+          type="text"
+          id="image"
+          name="image"
+          class="form__input"
+          placeholder=" "
+          value={{data.thumbnails}}
+          required
+        />
+        <label for="image" class="form__label">Imagen</label>
+        <span class="form__line"></span>
+      </div>
+
+      <input type="submit" class="form__submit" value="Enviar" />
+    </div>
+  </form>
+{{/if}}

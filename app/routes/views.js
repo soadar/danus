@@ -12,29 +12,28 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     //res.json({ msg: "hola" });
-    //res.sendFile('app/views/index.html', { root: '.' })
-    //res.sendFile(__dirname + "/views/index.html");
     res.render("portal");
 });
 
 router.get('/productos', async (req, res) => {
     const { products } = req.query;
     if (!products) {
-        const albums = await albumDao.getAll();
+        const data = await albumDao.getAll();
         res.render("productos", {
-            albums
+            data
         });
     } else {
-        const albums = await productDao.search(products);
-
-        albums.forEach(album => {
-            const name = album.title.split('_')
-            album.title = name[1]
-        })
-
-        res.render("productos", {
-            albums
-        });
+        const data = await productDao.searchAlbum(products);
+        if (data.length) {
+            res.render("productos", {
+                data
+            });
+        } else {
+            const data = await productDao.searchProd(products);
+            res.render("productos", {
+                data
+            });
+        }
     }
 });
 
@@ -51,12 +50,6 @@ router.post('/contacto', async (req, res) => {
 });
 
 router.get('/mensajes', async (req, res) => {
-
-    const mensaje = await messageDao.getById('64ed4ec27aefd9a5bdc249b1')
-    //console.log(mensaje._id.getTimestamp());
-    //console.log(mensaje.createdAt.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric' }));
-    //console.log(mensaje.createdAt.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }));
-
     const mensajes = await messageDao.getAll();
     res.render("mensajes", {
         mensajes
@@ -89,6 +82,40 @@ router.post('/crearProducto', async (req, res) => {
     const title = `${album}_${name}`
     await productDao.create({ title, thumbnails: image });
     res.render("crearProducto");
+});
+
+router.get('/editProducto', async (req, res) => {
+    const { id } = req.query;
+    let data = await productDao.getById(id);
+    if (data) {
+        data = data.toJSON();
+        const albums = await albumDao.getAll();
+        var nombres = albums.map((x) => {
+            return x.title;
+        });
+
+        res.render("editProducto", { data, nombres });
+    } else {
+        data = await albumDao.getById(id);
+        if (data) {
+            data = data.toJSON();
+            res.render("editProducto", { data });
+        }
+    }
+});
+
+router.post('/editProducto', async (req, res) => {
+    const { id } = req.query;
+    if (req.body.album) {
+        await productDao.update(id, req.body)
+    } else {
+        const album = await albumDao.getById(id)
+        const albumViejo = album.title;
+        const albumNuevo = req.body.title;
+        await productDao.updateMany({ album: albumViejo }, { album: albumNuevo })
+        await albumDao.update(id, req.body)
+    }
+    res.redirect("/productos")
 });
 
 export default router;
